@@ -14,23 +14,26 @@ public class Playlist {
     
     
     
-    public playList(){
+    public Playlist(){
         
     }
     
     public void addSong (Song song){
         this.playList.add(song);
     }
-    public boolean removeSong(String songName){
-        
-    return false;
-    }
+    
     
     public int getPlayListSize(){
         return this.playList.size();
     }
     public void clearPlayList(){
         this.playList.clear();
-        
+    }
+    public boolean removeSong(String songName){
+        return false;
+    }
+    
+    public boolean setSongPlays(String songName, int songPlays){
+        return false;
     }
 }
