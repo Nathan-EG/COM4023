@@ -26,15 +26,35 @@ public class Song {
         
     }   
     
-    
-    public String getartist(){
-        return this.artist;
-        
+    public String getName(){
+        return this.songName;
+       
     }
     
-    public void setartist(String artist){
+    public int getPlayBack(){
+        return this.playBack;
+    }
+    
+    public String getArtist(){
+        return this.artist;
+    }
+    
+    public void setArtist(String artist){
         this.artist = artist;
     }
+    public void setName (String newName){
+        this.songName=newName;
+    }
+    public void setPlay(int newPlays){
+        this.playBack=newPlays;
+    }
+    
+    public void printSong(){
+        system.out.println(this.songName + "," + this.artist + "," + this.playBack);
+    }
+    
+    
+    
         
         
         
