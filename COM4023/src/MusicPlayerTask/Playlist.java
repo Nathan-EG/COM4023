@@ -4,6 +4,7 @@
  */
 package MusicPlayerTask;
 import java.util.ArrayList;
+import java.util.Random;
 /**
  *
  * @author nellis-greenwood
@@ -15,6 +16,7 @@ public class Playlist {
     
     
     public Playlist(){
+        this.playList=new ArrayList<>();
         
     }
     
@@ -26,14 +28,52 @@ public class Playlist {
     public int getPlayListSize(){
         return this.playList.size();
     }
+    
     public void clearPlayList(){
         this.playList.clear();
     }
-    public boolean removeSong(String songName){
-        return false;
+    
+    public void removeSong(String songName){
+        boolean removeSong = false;
+        for (int index = 0; index < playList.size(); index++){
+            Song currentSong = playList.get(index);
+            if (currentSong.getTitle().equalsIgnoreCase(songName)) {
+                playList.remove(index);
+                removeSong = true;
+            }
+        }
+        if (removeSong==false){
+            System.out.println("Cannot remove as song does not exist.");
+        }
     }
     
-    public boolean setSongPlays(String songName, int songPlays){
-        return false;
+    public void setSongPlays(String songName, int songPlays){
+        
+        boolean findSong = false;
+        for(int index = 0; index < playList.size(); index++) {
+            Song currentSong = playList.get(index);
+            if (currentSong.getTitle().equalsIgnoreCase(songName))
+                currentSong.setPlays(songPlays);
+                findSong = true;
+        }
+        if (findSong==false){
+            System.out.println("Cannot find the SongName.");
+        }
+    }
+    
+    public void printAbovePlays(int songPlays){
+        boolean findSong = false;
+        for (int index = 0; index < playList.size(); index++) {
+            Song currentSong = playList.get(index);
+            if (currentSong.getPlayBack() > songPlays){
+                currentSong.printSong();
+                found=true;
+                
+            }
+        }
+        
+        if (found==false){
+            System.out.println("No songs found with play above " + songPlays);
+        }
     }
 }
